@@ -1,14 +1,25 @@
-// it will hold event list component
+// it will hold event list components
 
-import EventItem from "./event-items";
+import EventItem from "./event-item";
+//import classes from "./event-list.module.css";
 
-function EventList(props) {            //responsible for rendering a list of events
+const EventList = (props) => {
     const { items } = props;
-    return
-    <ul>
-        {items.map(event => <EventItem />)}
 
-    </ul>
+    return (
+        <ul >
+            {items.map((event) => (
+                <EventItem
+                    key={event.id}
+                    id={event.id}
+                    title={event.title}
+                    location={event.location}
+                    date={event.date}
+                    image={event.image}
+                />
+            ))}
+        </ul>
+    );
+};
 
-}
 export default EventList;

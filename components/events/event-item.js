@@ -1,4 +1,5 @@
 import Link from "next/link";
+import classes from './event-item.module.css';
 
 function EventItem(props) {    //using props because dat should be passed in from outside
     const { title, image, date, location, id } = props;     //object destructuring to pull out that data from props
@@ -9,23 +10,23 @@ function EventItem(props) {    //using props because dat should be passed in fro
         year: 'numeric',
     });
     const formattedAddress = location.replace(',', '\n');
-    const exploreLink = `/events/&{id}`;
+    const exploreLink = `/events/${id}`;
 
     return (
-        <li>
+        <li className={classes.item}>
             <img src={'/' + image} alt={title} />
-            <div>
-                <div>
+            <div className={classes.content}>
+                <div className={classes.summary}>
                     <h2>{title}</h2>
-                    <div>
+                    <div className={classes.date}>
                         <time>{humanReadableDate}</time>
                     </div>
-                    <div>
+                    <div className={classes.address}>
                         <address>{formattedAddress}</address>
                     </div>
                 </div>
 
-                <div>
+                <div className={classes.actions}>
                     <Link href={exploreLink}>Explore Event</Link>
                 </div>
             </div>

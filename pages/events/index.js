@@ -4,7 +4,7 @@ import { getAllEvents } from "../../helpers/api-util";
 import { Fragment } from "react";
 import { useRouter } from "next/router";
 
-function AllEventsPage() {
+function AllEventsPage(props) {
     const { events } = props;
     const router = useRouter();
 

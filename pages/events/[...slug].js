@@ -31,6 +31,15 @@ const FilteredEventsPage = (props) => {
         }
     }, [data]);
 
+    let pageHeadData =
+        <Head>
+            <title>Filtered Events</title>
+            <meta
+                name="description"
+                content="List of filtered events"
+            />
+        </Head>
+
     if (!loadedEvents) {
         return (
             <Fragment>
@@ -47,7 +56,7 @@ const FilteredEventsPage = (props) => {
     const numYear = +filteredYear;
     const numMonth = +filteredMonth;
 
-    const pageHeadData = (
+    pageHeadData = (
         <Head>
             <title>Filtered Events</title>
             <meta
